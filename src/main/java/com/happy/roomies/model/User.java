@@ -30,6 +30,11 @@ public class User extends AbstractEntity{
     @Column(name = "email", unique = true, nullable = false)
     private String email;
 
+    @NotBlank
+    @Column(name = "phone_number", unique = true, nullable = false)
+    private String phoneNumber;
+
+
     @ColumnDefault("true")
     @Column(name = "is_active")
     private Boolean isActive = true;
