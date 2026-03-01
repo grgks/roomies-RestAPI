@@ -23,6 +23,7 @@ public class User extends AbstractEntity{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank
     @Column(name = "key_cloak_id", unique = true, nullable = false)
     private String keycloakId;
 
