@@ -10,6 +10,7 @@ import lombok.Setter;
 import org.hibernate.annotations.DynamicInsert;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -45,7 +46,7 @@ public class Task extends AbstractEntity{
     private House house;
 
     @Column(name = "due_date")
-    private LocalDate dueDate;
+    private LocalDateTime dueDate;
 
 
 
