@@ -36,11 +36,22 @@ dependencies {
 
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'
-
+	testImplementation 'org.springframework.boot:spring-boot-data-jpa-test'
+	testImplementation 'org.springframework.boot:spring-boot-jdbc-test'
 
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
-tasks.named('test', Test) {
+
+test {
 	useJUnitPlatform()
+}
+
+jacocoTestReport {
+	dependsOn test
+	reports {
+		xml.required = true
+		html.required = true
+	}
+
 }
