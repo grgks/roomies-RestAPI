@@ -29,9 +29,22 @@ public class TestDataFactory {
         return user;
     }
 
+    /**
+     * Creates a new default User without id
+     */
+    public static User createNewDefaultUser(){
+        User user = new User();
+
+        user.setKeycloakId("121-234-345-23a");
+        user.setEmail("user@aueb.gr");
+        user.setPhoneNumber("0987654321");
+        user.setIsActive(true);
+        return user;
+    }
+
 
     /**
-     * Creates a default User
+     * Creates a default House
      */
     public static House createDefaultHouse(){
         User user = TestDataFactory.createDefaultUser();
