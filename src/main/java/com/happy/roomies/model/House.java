@@ -42,5 +42,5 @@ public class House extends AbstractEntity {
 
     @ManyToOne
     @JoinColumn(name = "owner_id", nullable = false)
-    private User owner;
+    private Roommate owner;
 }
