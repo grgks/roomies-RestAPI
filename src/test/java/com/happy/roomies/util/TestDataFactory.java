@@ -2,10 +2,13 @@ package com.happy.roomies.util;
 
 
 import com.happy.roomies.core.enums.Gender;
+import com.happy.roomies.core.enums.TaskStatus;
 import com.happy.roomies.model.House;
 import com.happy.roomies.model.Roommate;
+import com.happy.roomies.model.Task;
 import com.happy.roomies.model.User;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 /**
@@ -107,4 +110,32 @@ public class TestDataFactory {
         roommate.setHouses(new ArrayList<>());
         return roommate;
     }
+
+    /**
+     *  Create new Task1
+     */
+public static Task createNewDefaultTask1(){
+
+    Task task1 = new Task();
+    task1.setTaskName("Clean the dishes");
+    task1.setTaskStatus(TaskStatus.IN_PROGRESS);
+    task1.setAssignees(new ArrayList<>());
+    task1.setDueDate(LocalDateTime.of(2026,10,12,15,10));
+    return task1;
+}
+
+    /**
+     *  Create new Task2
+     */
+    public static Task createNewDefaultTask2(){
+
+        Task task2 = new Task();
+        task2.setTaskName("Mopping");
+        task2.setTaskStatus(TaskStatus.IN_PROGRESS);
+        task2.setAssignees(new ArrayList<>());
+        task2.setDueDate(LocalDateTime.of(2026,8,10,12,10));
+        return task2;
+    }
+
+
 }
