@@ -6,7 +6,7 @@ import com.happy.roomies.model.House;
 import com.happy.roomies.model.Roommate;
 import com.happy.roomies.model.User;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /**
  * Factory class for creating test data objects with default values.
@@ -34,7 +34,6 @@ public class TestDataFactory {
      */
     public static User createNewDefaultUser(){
         User user = new User();
-
         user.setKeycloakId("121-234-345-23a");
         user.setEmail("user@aueb.gr");
         user.setPhoneNumber("0987654321");
@@ -42,12 +41,23 @@ public class TestDataFactory {
         return user;
     }
 
+    /**
+     * Creates a new default User without id
+     */
+    public static User createNewDefaultUser2(){
+        User user = new User();
+        user.setKeycloakId("165-234-985-23a");
+        user.setEmail("user2@aueb.gr");
+        user.setPhoneNumber("0987654385");
+        user.setIsActive(true);
+        return user;
+    }
 
     /**
      * Creates a default House
      */
     public static House createDefaultHouse(){
-        User user = TestDataFactory.createDefaultUser();
+        Roommate roommate = TestDataFactory.createDefaultRoommate();
 
         House house = new House();
         house.setId(12L);
@@ -55,17 +65,27 @@ public class TestDataFactory {
         house.setAddressNumber("12");
         house.setApartment("21B");
         house.setNumOfRooms(4L);
-        house.setOwner(user);
+        house.setOwner(roommate);
+        return house;
+    }
+
+    /**
+     * Creates a new default House without id
+     */
+    public static House createNewDefaultHouse() {
+        House house = new House();
+        house.setAddress("Unknown Street");
+        house.setAddressNumber("12");
+        house.setApartment("21B");
+        house.setNumOfRooms(4L);
         return house;
     }
 
     /**
      * Creates a default Roommate with a default User
      */
-
     public static Roommate createDefaultRoommate() {
         User user = TestDataFactory.createDefaultUser();
-        House house = TestDataFactory.createDefaultHouse();
 
         Roommate roommate = new Roommate();
         roommate.setId(12L);
@@ -73,9 +93,18 @@ public class TestDataFactory {
         roommate.setLastname("RoommateLast");
         roommate.setGender(Gender.FEMALE);
         roommate.setUser(user);
-        roommate.setHouses(List.of(house));
         return roommate;
     }
 
-
+    /**
+     * Creates a new default Roommate without id
+     */
+    public static Roommate createNewDefaultRoommate() {
+        Roommate roommate = new Roommate();
+        roommate.setFirstname("Roommate1");
+        roommate.setLastname("RoommateLast");
+        roommate.setGender(Gender.FEMALE);
+        roommate.setHouses(new ArrayList<>());
+        return roommate;
+    }
 }
